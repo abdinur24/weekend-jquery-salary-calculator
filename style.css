@@ -1,0 +1,40 @@
+header{
+    background-color: rgb(104, 102, 102);
+    text-align: center;
+    color: white;
+    
+}
+input{
+    width: 19%;
+    margin-bottom: 10px;
+    padding-right: 5px;
+}
+table{
+    border: 1px solid black;
+    width: 100%;
+    border-collapse: collapse;
+ }
+ thead tr {
+    background-color: rgb(122, 119, 119);
+    color: black;
+ }
+ td, th {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+ }
+ th {
+    border-bottom: 2px black;
+ }
+ tr:nth-child(even) {
+    background-color: rgb(161, 161, 161);
+ }
+ #employeeButton{
+     float: right;
+ }
+ footer{
+     text-align: right;
+ }
+ .overdraft{
+     color: red;
+ }

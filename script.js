@@ -1,22 +1,24 @@
 $(Onready);
 
-let totalMonthly = [0];
-function Onready(){
+let totalMonthly = [];
+function Onready() {
     console.log('Is this working')
 
     $('#employeeButton').on('click', addEmployee);
+    $('#employeeBody').on('click', '.delete-button', deleteEmployee)
 
 }
 
-function addEmployee(){
+function addEmployee() {
     let firstName = $('#employeeFirst').val();
     let lastName = $('#employeeLast').val();
     let id = $('#employeeID').val();
     let title = $('#employeeTitle').val();
     let annualSalary = $('#employeeSalary').val();
-    annualSalary
 
-    console.log(firstName, lastName, id,title, annualSalary);
+
+
+    console.log(firstName, lastName, id, title, annualSalary);
 
     $('#employeeBody').append(`
         <tr>
@@ -24,7 +26,7 @@ function addEmployee(){
             <td>${lastName}</td>
             <td>${id}</td>
             <td>${title}</td>
-            <td id="anny">${annualSalary}</td>
+            <td class="annual-salary">${annualSalary}</td>
             <td><button class="delete-button">Delete</button></td>
         </tr>
     `);
@@ -34,22 +36,29 @@ function addEmployee(){
     $('#employeeTitle').val('');
     $('#employeeSalary').val('');
 
-
+    totalMonthly.push(annualSalary)
     let sum = 0
-    for(let i=0; i<annualSalary.length; i++){
-        totalMonthly += Number(annualSalary[i])
-        
+    for (let i = 0; i < totalMonthly.length; i++) {
+        sum += Number(totalMonthly[i])
     }
-    $('#monthlySum').text(totalMonthly);
+    $('.monthlySum').text(sum);
 
-   
+    
+    if(sum > 20000){
+        $('.balance').css("color", 'red')
+    }
 }
 
-// function calculatingSum(){
-//     for(let i=0; i<annualSalary.length; i++){
-//         totalMonthly += annualSalary[i]
+function deleteEmployee(event) {
+    $(event.target).closest('tr').remove();
+}
+// function showTotalMonthly(){
+//     let sum = 0;
+//     totalMonthly.push(annualSalary);
+//     for(let i=0; i<totalMonthly; i++){
+//         sum += totalMonthly[i]
 //     }
-//     $('#monthlySum').text(totalMonthly);
+//     $('#monthlySum').text(sum);
 // }
 
 
