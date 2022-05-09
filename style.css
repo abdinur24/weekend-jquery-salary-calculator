@@ -1,6 +1,11 @@
+body{
+    margin: 0px;
+
+}
 header{
     background-color: rgb(104, 102, 102);
     text-align: center;
+    height: 100px;
     color: white;
     
 }
