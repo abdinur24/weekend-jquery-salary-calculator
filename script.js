@@ -1,6 +1,9 @@
 $(Onready);
 
+// emepty array to catch the employee annual salary
 let totalMonthly = [];
+
+// onReady function has two click events one to add the inputs onto the table and one to delete a certain row of the table
 function Onready() {
     console.log('Is this working')
 
@@ -9,6 +12,7 @@ function Onready() {
 
 }
 
+// addEmployee 
 function addEmployee() {
     let firstName = $('#employeeFirst').val();
     let lastName = $('#employeeLast').val();
@@ -36,29 +40,52 @@ function addEmployee() {
     $('#employeeTitle').val('');
     $('#employeeSalary').val('');
 
-    totalMonthly.push(annualSalary)
-    let sum = 0
+    totalMonthly.push(annualSalary);
+    showTotalMonthly();
+    // let sum = 0
+    // for (let i = 0; i < totalMonthly.length; i++) {
+    //     sum += Number(totalMonthly[i])
+    // }
+    // $('.monthlySum').data(sum);
+
+
+    // if(sum > 20000){
+    //     $('.balance').css("color", 'red')
+    // }    
+}
+
+
+function showTotalMonthly() {
+    let sum = 0;
     for (let i = 0; i < totalMonthly.length; i++) {
         sum += Number(totalMonthly[i])
+        $('.monthlySum').text(sum);
     }
     $('.monthlySum').text(sum);
-
-    
-    if(sum > 20000){
+    if (sum > 20000) {
         $('.balance').css("color", 'red')
     }
 }
 
+
+
+
 function deleteEmployee(event) {
     $(event.target).closest('tr').remove();
+
+    // for (let i = 0; i < totalMonthly.length; i++) {
+    //     // deletedTotal = totalMonthly
+    //     totalMonthly.pop(totalMonthly[i]);
+    //     sum2 += totalMonthly[i]
+    //     $('.monthlySum').text(sum2)
+    // }
+    // showTotalMonthly();
+    // $('.monthlySum').remove(totalMonthly)
+    // $('.monthlySum').text(totalMonthly)
+
 }
-// function showTotalMonthly(){
-//     let sum = 0;
-//     totalMonthly.push(annualSalary);
-//     for(let i=0; i<totalMonthly; i++){
-//         sum += totalMonthly[i]
-//     }
-//     $('#monthlySum').text(sum);
-// }
+
+
+
 
 
